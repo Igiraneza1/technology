@@ -1,0 +1,102 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+}
+
+/* Navigation Bar */
+.navbar {
+    margin-bottom: 20px;
+}
+#navbarNav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background-color: #f2f2f3;
+    color: white;
+    display: flex;
+    z-index: 1000;
+}
+.h1{
+    text-align: center;
+    color: rgb(4, 83, 37);
+}
+.jumbotron {
+    padding: 50px 0;
+}
+
+.jumbotron h1 {
+    font-size: 5rem;
+    font-weight: bold;
+    color: rgb(1, 84, 61);
+}
+.jumbotron img{
+    border-radius: 20px;
+}
+
+.jumbotron p {
+    font-size: 0.8rem;
+    color:white
+}
+
+.jumbotron .btn {
+    background-color: #76c789;
+    border: none;
+    font-size: 1rem;
+}
+
+/* About Section */
+#about {
+    padding: 50px 0;
+}
+
+#about h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+#about p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+.evaluation{
+    padding-left: 60px;
+}
+.container-fluid{
+    background-color: rgb(196, 244, 230);
+    font-size: 20px;
+    border-radius: 50px;
+}
+/* Contact Section */
+#contact {
+    padding: 50px 0;
+}
+
+#contact h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+#contact p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+/* Footer */
+footer {
+    color: rgb(0, 0, 0);
+}
+footer p {
+    margin: 0;
+    font-size: 0.8rem;
+}
+

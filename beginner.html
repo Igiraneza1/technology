@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empowering Everyone Through Technology Quiz</title>
+    <script src="https://kit.fontawesome.com/66aa7c98b3.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="beginner.css">
+</head>
+<body>
+    <h1 class="head">Unlock Opportunity Together</h1>
+<div class="body">
+<div class="quiz-container">
+    <div id="quiz">
+        <!-- Questions will be generated here -->
+    </div>
+    <button class="quiz-submit" onclick="submitQuiz()">Submit Quiz</button>
+</div>
+
+<script>
+    const questions = [
+        {
+            question: "How do smartphones help people stay connected?",
+            options: ["By storing photos", "By enabling calls and messages", "By playing games", "By setting alarms"],
+            answer: 1
+        },
+        {
+            question: "What can educational apps help you do?",
+            options: ["Learn new skills", "Take photos", "Play music", "Shop online"],
+            answer: 0
+        },
+        {
+            question: "Which of the following is a benefit of using online courses?",
+            options: ["Instant communication", "Learning at your own pace", "Tracking your location", "Ordering food"],
+            answer: 1
+        },
+        {
+            question: "How do GPS apps on smartphones empower users?",
+            options: ["By helping them find directions", "By editing photos", "By sending emails", "By making videos"],
+            answer: 0
+        },
+        {
+            question: "What can people use to manage their daily tasks more effectively?",
+            options: ["Digital calendars", "Social media apps", "Music streaming apps", "Photo editing tools"],
+            answer: 0
+        },
+        {
+            question: "How do language learning apps empower people?",
+            options: ["By teaching them new languages", "By playing music", "By storing contacts", "By organizing files"],
+            answer: 0
+        },
+        {
+            question: "Which of the following technologies helps people with disabilities access information?",
+            options: ["Screen readers", "Music apps", "Fitness trackers", "Online shopping apps"],
+            answer: 0
+        },
+        {
+            question: "What is one way that smartphones improve personal productivity?",
+            options: ["By playing games", "By allowing task management with apps", "By streaming videos", "By taking selfies"],
+            answer: 1
+        },
+        {
+            question: "Which of the following is a way that technology supports lifelong learning?",
+            options: ["Providing access to online courses", "Streaming movies", "Browsing social media", "Shopping online"],
+            answer: 0
+        },
+        {
+            question: "How can smartphones contribute to better health management?",
+            options: ["By tracking fitness and diet with apps", "By taking photos", "By browsing the web", "By playing videos"],
+            answer: 0
+        }
+    ];
+
+    const quizContainer = document.getElementById('quiz');
+
+    function loadQuiz() {
+        questions.forEach((q, index) => {
+            const questionElement = document.createElement('div');
+            questionElement.classList.add('quiz-question');
+            questionElement.innerHTML = `
+                <p>${index + 1}. ${q.question}</p>
+                ${q.options.map((option, i) => `
+                    <div class="quiz-option">
+                        <input type="radio" name="question${index}" value="${i}" id="question${index}_option${i}">
+                        <label for="question${index}_option${i}">${option}</label>
+                    </div>
+                `).join('')}
+                <div class="feedback" id="feedback${index}"></div>
+            `;
+            quizContainer.appendChild(questionElement);
+        });
+    }
+
+    function submitQuiz() {
+        questions.forEach((q, index) => {
+            const selectedOption = document.querySelector(`input[name="question${index}"]:checked`);
+            const feedbackElement = document.getElementById(`feedback${index}`);
+            if (selectedOption) {
+                const selectedValue = parseInt(selectedOption.value);
+                if (selectedValue === q.answer) {
+                    feedbackElement.innerHTML = `<span class="correct">Correct: ${q.options[selectedValue]}</span>`;
+                } else {
+                    feedbackElement.innerHTML = `<span class="incorrect">Incorrect: ${q.options[selectedValue]} (Correct: ${q.options[q.answer]})</span>`;
+                }
+            } else {
+                feedbackElement.innerHTML = `<span class="incorrect">No answer selected (Correct: ${q.options[q.answer]})</span>`;
+            }
+        });
+    }
+
+    loadQuiz();
+</script>
+</div>
+<button class="breturn"><a href="index.html" class="return">Return to home page</a></button>
+<div class="socialmedia">
+    <a href="https://wa.me/250782766241" target="blank"><i class="fab fa-whatsapp-square"></i>WhatsApp</a>
+    <a href="https://www.instagram.com/tech___bridge" target="blank"><i class="fab fa-instagram"></i> Instagram</a>
+    <a href="https://github.com/Igiraneza1" target="blank"><i class="fab fa-github"></i> Github</a>
+    <a href="https://https://x.com/AdlnIg" target="blank"><i class="fab fa-twitter"> Twitter</i></a>
+    <a href="www.linkedin.com/in/adeline-igiraneza/" target="blank"><i class="fab fa-linkedin">Linkedin</i></a>
+</div>
+</div>
+</div>
+</section>
+<footer class="bg-dark text-white text-center py-3">
+<p>&copy; 2024 TechBridge. All Rights Reserved.</p>
+</footer>
+</body>
+</html>

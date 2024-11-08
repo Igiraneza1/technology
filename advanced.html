@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empowering Technology Quiz</title>
+</head>
+<body>
+
+<div class="quiz-container">
+    <div id="quiz">
+        <!-- Questions will be generated here -->
+    </div>
+    <button class="quiz-submit" onclick="submitQuiz()">Submit Quiz</button>
+</div>
+
+<script>
+    const questions = [
+        {
+            question: "Which popular mobile money service in Rwanda allows users to send and receive money via their smartphones?",
+            options: ["PayPal", "Apple Pay", "M-Pesa", "Mobile Money (MoMo)"],
+            answer: 3
+        },
+        {
+            question: "What is one way Rwandans can access government services online?",
+            options: ["By using the Irembo platform", "By visiting a local bank", "By calling customer service", "By sending a letter"],
+            answer: 0
+        },
+        {
+            question: "Which of the following is a key benefit of e-learning platforms for Rwandan students?",
+            options: ["Access to international courses", "Playing games", "Watching movies", "Online shopping"],
+            answer: 0
+        },
+        {
+            question: "What type of technology is commonly used in Rwanda to provide internet access in rural areas?",
+            options: ["Fiber optic cables", "Satellite internet", "5G networks", "Dial-up connections"],
+            answer: 1
+        },
+        {
+            question: "Which smartphone feature allows farmers in Rwanda to receive weather updates?",
+            options: ["Calendar", "SMS services", "Camera", "Radio"],
+            answer: 1
+        },
+        {
+            question: "What is the main purpose of ICT hubs like kLab in Kigali?",
+            options: ["Entertainment", "Business incubation and innovation", "Social networking", "Online shopping"],
+            answer: 1
+        },
+        {
+            question: "Which mobile app is commonly used in Rwanda to access banking services on the go?",
+            options: ["WhatsApp", "Uber", "Bank of Kigali App", "Instagram"],
+            answer: 2
+        },
+        {
+            question: "How can Rwandan entrepreneurs use social media to grow their businesses?",
+            options: ["By posting videos of their favorite songs", "By sharing personal photos", "By marketing their products and services", "By playing online games"],
+            answer: 2
+        },
+        {
+            question: "What is one advantage of using e-commerce platforms in Rwanda?",
+            options: ["Easier access to international markets", "Higher costs", "Limited product availability", "Slower delivery times"],
+            answer: 0
+        },
+        {
+            question: "Which of the following is an example of how technology is used in Rwanda's agriculture sector?",
+            options: ["Using drones for aerial surveys", "Planting crops manually", "Selling produce at the market", "Harvesting without machinery"],
+            answer: 0
+        },
+        {
+            question: "How can Rwandans use mobile apps to manage their health?",
+            options: ["By tracking their fitness activities", "By watching movies", "By ordering food", "By taking photos"],
+            answer: 0
+        },
+        {
+            question: "What online platform is commonly used in Rwanda for job searching?",
+            options: ["YouTube", "Job in Rwanda", "LinkedIn", "Netflix"],
+            answer: 1
+        },
+        {
+            question: "Which technology is helping to improve education in Rwanda's remote areas?",
+            options: ["Laptops and tablets", "Radio and television", "Newspapers", "Traditional classrooms"],
+            answer: 0
+        },
+        {
+            question: "What digital payment method is increasingly used for small transactions in Rwanda?",
+            options: ["Credit cards", "Cheques", "Cash", "Mobile Money (MoMoPay)"],
+            answer: 3
+        },
+        {
+            question: "How can Rwandan students benefit from using online educational resources?",
+            options: ["By accessing study materials anytime, anywhere", "By playing video games", "By chatting with friends", "By browsing social media"],
+            answer: 0
+        }
+    ];
+
+    const quizContainer = document.getElementById('quiz');
+
+    function loadQuiz() {
+        questions.forEach((q, index) => {
+            const questionElement = document.createElement('div');
+            questionElement.classList.add('quiz-question');
+            questionElement.innerHTML = `
+                <p>${index + 1}. ${q.question}</p>
+                ${q.options.map((option, i) => `
+                    <div class="quiz-option">
+                        <input type="radio" name="question${index}" value="${i}" id="question${index}_option${i}">
+                        <label for="question${index}_option${i}">${option}</label>
+                    </div>
+                `).join('')}
+                <div class="feedback" id="feedback${index}"></div>
+            `;
+            quizContainer.appendChild(questionElement);
+        });
+    }
+
+    function submitQuiz() {
+        questions.forEach((q, index) => {
+            const selectedOption = document.querySelector(`input[name="question${index}"]:checked`);
+            const feedbackElement = document.getElementById(`feedback${index}`);
+            if (selectedOption) {
+                const selectedValue = parseInt(selectedOption.value);
+                if (selectedValue === q.answer) {
+                    feedbackElement.innerHTML = `<span class="correct">Correct: ${q.options[selectedValue]}</span>`;
+                } else {
+                    feedbackElement.innerHTML = `<span class="incorrect">Incorrect: ${q.options[selectedValue]} (Correct: ${q.options[q.answer]})</span>`;
+                }
+            } else {
+                feedbackElement.innerHTML = `<span class="incorrect">No answer selected (Correct: ${q.options[q.answer]})</span>`;
+            }
+        });
+    }
+
+    loadQuiz();
+</script>
+
+</body>
+</html>
